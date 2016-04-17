@@ -1,0 +1,9 @@
+<div>
+<div ng-if="isLogged()"><a href="" ng-click="logout()">Logout</a></div>
+<div ng-if="!isLogged()"><a href="/petstore/#/login">Go to Login</a></div>
+<div ng-if="isLogged()"><a href="/petstore/#/admin">Go to admin</a></div>
+<div ng-if="isLogged()"><a href="/petstore/#/home">Go to home</a></div>
+<user-directive></user-directive>
+{{saveStatus}}
+</div>
+

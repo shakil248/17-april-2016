@@ -1,0 +1,14 @@
+<div>
+<form role="form" name="loginFrom" autocomplete="off">
+		<h1>User Login</h1>
+	<div>
+		<label for="InputLoginId">Email Id:</label>
+		<input type="text" placeholder="Enter Email Id" required ng-model="emailId"  style="margin-left: 30px;">
+	</div>
+	<div>
+		<label for="InputPassword">Password:</label>
+		<input type="password" placeholder="Enter Password" id="inputPassword" required ng-model="password"  style="margin-left: 24px;">
+	</div>
+	<button class="btn btn-default" type="submit" ng-click="login()" ng-disabled="loginFrom.$invalid"  style="margin-left: 140px; margin-top: 28px; margin-bottom: 4px;">Login</button>
+	</form>
+</div>

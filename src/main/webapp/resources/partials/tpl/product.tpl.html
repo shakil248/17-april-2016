@@ -1,0 +1,53 @@
+<div>
+<div>
+<ul>
+  <li ng-repeat="x	in products">
+    {{ x.productName + ', ' + x.productDesc + ', ' + x.inStock+ ', ' + x.sku+ ', ' + x.productPrice }} <button ng-click="editProduct(x)">Edit</button>
+  </li>
+</ul>
+</div>
+<form role="form" name="productForm">
+
+	<div>
+		<label for="InputproductCat">Product Categories</label>
+		 <select id="InputProductCat" ng-model="product.productCatId" ng-options="obj.productCatId as obj.productCatName for obj in productCategories" style="margin-left: 84px;"><option value="">Product Category</option></select>
+	</div>
+
+	<div>
+		<label for="InputProductName">Product Name</label>
+		<input type="text" placeholder="Enter Product Name" id="InputProductName" required ng-model="product.productName" style="margin-left: 60px;">
+	</div>
+	<div>
+		<label for="InputProductDesc">Product Description</label>
+		<input type="text" placeholder="Enter Product Description" id="InputProductDesc" required ng-model="product.productDesc" style="margin-left: 55px;">
+	</div>
+	<div>
+		<label for="InputProductSku">Product Sku</label>
+		<input type="text" placeholder="Enter Product Sku" id="InputProductSku" required ng-model="product.sku" style="margin-left: 55px;">
+	</div>
+	<div>
+		<label for="InputProductPrice">Product Price</label>
+		<input type="text" placeholder="Enter Product Price" id="InputProductPrice" required ng-model="product.productPrice" style="margin-left: 44px;">
+	</div>
+	<div>
+		<label for="InputInStock">In Stock</label>
+		<input type="number" placeholder="In Stock Quantity" id="InputInStock" required ng-model="product.inStock" style="margin-left: 60px;">
+		
+	</div>
+	<div>
+		<label for="InputIsActive">Is Active</label>
+		<input type="boolean" placeholder="Is Active" id="InputIsActive" required ng-model="product.isActive" style="margin-left: 60px;">
+		
+	</div>
+
+	<div>
+	<button class="btn btn-default" type="submit" ng-click="createProduct(product)" ng-disabled="productForm.$invalid" style="margin-left: 119px; margin-top: 30px">Submit</button>	
+	<button class="btn btn-default" type="button" ng-click="clearProduct(product)" >Clear</button>
+	</div>
+
+	
+	<span style="color:red">{{errorMessage}}</span>
+	</form>
+	
+	
+</div>			

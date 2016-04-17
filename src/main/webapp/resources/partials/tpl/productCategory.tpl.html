@@ -1,0 +1,22 @@
+<div>
+<ul>
+  <li ng-repeat="x	in productCategories">
+    {{ x.productCatName + ', ' + x.isActive }} <button ng-click="editProductCat(x)">Edit</button>
+  </li>
+</ul>
+<form role="form" name="productCatForm">
+	<div>
+		<label for="InputproductCatName">Product Category Name</label>
+		<input type="text" placeholder="Enter Product Category Name" id="InputproductCatName" required ng-model="productCat.productCatName" style="margin-left: 60px;">
+	</div>
+	<div>
+		<label for="InputProductIsActive">Product Is Active</label>
+		<input type="boolean" placeholder="Enter Product Category is Active" id="InputProductIsActive" required ng-model="productCat.isActive" style="margin-left: 55px;">
+	</div>
+	<div>
+	<button class="btn btn-default" type="submit" ng-click="createProductCat(productCat)" ng-disabled="productCatForm.$invalid" style="margin-left: 119px; margin-top: 30px">Submit</button>	
+	<button class="btn btn-default" type="button" ng-click="clearProductCat(productCat)" >Clear</button>
+	</div>
+	<span style="color:red">{{errorMessage}}</span>
+	</form>
+</div>			

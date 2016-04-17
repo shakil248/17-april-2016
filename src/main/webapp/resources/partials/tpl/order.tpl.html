@@ -1,0 +1,32 @@
+<div>
+<ul>
+  <li ng-repeat="x	in orders">
+    {{ x.orderNumber + ', ' + x.emailId + ', ' + x.totalAmount + ', ' + x.status }} <button ng-click="editOrder(x)">Edit</button>
+  </li>
+</ul>
+<div>
+<form role="form" name="orderForm">
+	<div>
+		<label for="OrderNumber">Order Number</label>
+		<input type="text" placeholder="Order Number" id="OrderNumber" required ng-model="order.orderNumber" style="margin-left: 60px;">
+	</div>
+	<div>
+		<label for="EmailId">Email id</label>
+		<input type="email" placeholder="Email Id" id="EmailId" required ng-model="order.emailId" style="margin-left: 55px;">
+	</div>
+	<div>
+		<label for="TotalAmount">Total Amount</label>
+		<input type="number" placeholder="Total Amount" id="TotalAmount" required ng-model="order.totalAmount" style="margin-left: 55px;">
+	</div>
+	<div>
+		<label for="Status">Status</label>
+		<input type="text" placeholder="Status" id="Status" required ng-model="order.status" style="margin-left: 55px;">
+	</div>
+
+	<div>
+	<button class="btn btn-default" type="submit" ng-click="updateOrder(order)" ng-disabled="orderForm.$invalid" style="margin-left: 119px; margin-top: 30px">Submit</button>	
+	</div>
+	<span style="color:red">{{errorMessage}}</span>
+	</form>
+</div>
+</div>			

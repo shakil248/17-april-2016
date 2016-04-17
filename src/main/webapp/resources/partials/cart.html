@@ -1,0 +1,63 @@
+<div>
+<div ng-if="isLogged()"><a href="" ng-click="logout()">Logout</a></div>
+<div ng-if="!isLogged()"><a href="/petstore/#/login">Go to Login</a></div>
+<div ng-if="isLogged()"><a href="/petstore/#/admin">Go to admin</a></div>
+<div ng-if="isLogged()"><a href="/petstore/#/home">Go to home</a></div>
+<div ng-if="orderPlaced">
+<h2>Order has been placed successfully</h2>
+</div>
+<div ng-if="noItemInCart && !orderPlaced">
+<h2>There is No Item in Cart</h2>
+</div>
+<div ng-if="!noItemInCart || !orderPlaced">
+<table>
+<tr><th>Image</th><th>Name</th><th>Price</th><th>Quantity</th><th>Total</th><th>Action</th></tr>
+<tr ng-repeat="x in cart.cartDetails">
+<td><img  id="img{{$index}}" src="resources/images/{{x.sku}}.jpg" height="150" width="120" style="margin-left: 122px; margin-bottom:20px"/></td>
+
+<td>{{x.productName}}</td><td>{{x.productPrice}}</td><td><input type="text" ng-model="x.quantity"/></td>{{x.productPrice * x.quantity}}<td><td><button ng-click="remove(x)">remove</button></td>
+</tr>
+</table>
+
+<H2>Shipping Address</H2>
+	<div>
+		<label for="InputUserName">User Name</label>
+		<input type="text" placeholder="Enter Name" id="InputLoginId" required ng-model="user.name" style="margin-left: 44px;">
+		
+	</div>
+	<div>
+		<label for="InputEmailId">Email Id</label>
+		<input type="email" placeholder="abc@xyz.com" id="InputEmailId" required ng-model="user.emailId" style="margin-left: 60px;">
+		
+	</div>
+	<h3>Address</h3>
+	<div>
+		<label for="InputHouseNo">House No</label>
+		<input type="number" placeholder="It must be number" id="InputHouseNo" required ng-model="user.address.houseNo" style="margin-left: 52px;" >
+			
+	</div>
+	<div>
+		<label for="InputStreet">Street</label>
+		<input type="text" placeholder="Enter Street" id="InputStreet" required ng-model="user.address.street" style="margin-left: 79px;">
+		
+	</div>
+	<div>
+		<label for="InputCity">City</label>
+		<input type="text" placeholder="Enter City" id="InputCity" required ng-model="user.address.city" style="margin-left: 88px;">
+		
+	</div>
+	<div>
+		<label for="InputState">State</label>
+		 <select id="InputState" ng-model="user.address.stateId" ng-options="obj.stateId as obj.stateName for obj in states" style="margin-left: 84px;"><option value="">States</option></select>
+		 
+	</div>
+	<div>
+		<label for="InputCountry">Country</label>
+		<input type="text" placeholder="Enter Country" id="InputCountry" required ng-model="user.address.country" style="margin-left: 64px;" >
+		
+	</div>
+	
+	<button ng-click="createOrder(cart)">Place Order</button>
+	</div>
+</div>
+
